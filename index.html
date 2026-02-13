@@ -18,7 +18,6 @@
             --accent: #ffffff;
         }
 
-        /* Okunabilir ve Koyu Açık Mod */
         .light-mode {
             --bg: linear-gradient(135deg, #b2bec3 0%, #636e72 100%);
             --card: rgba(255, 255, 255, 0.2);
@@ -40,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* Animasyonlar */
         @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes glow { 0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.2); } 50% { text-shadow: 0 0 25px rgba(255,255,255,0.5); } }
 
@@ -112,11 +110,40 @@
         .spec-grid { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
         .spec-item { background: rgba(0,0,0,0.2); padding: 12px 25px; border-radius: 10px; border: 1px dashed var(--steel-light); font-weight: 700; }
 
+        /* İletişim Bölümü */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+        .contact-item:hover { opacity: 1; transform: translateY(-3px); }
+        .soon-badge {
+            background: var(--steel-light);
+            color: #000;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
         footer { text-align: center; padding: 60px; opacity: 0.7; font-weight: 800; letter-spacing: 1px; }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; transform: scaleX(1.2); }
             .container { padding-top: 100px; }
+            .contact-links { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -137,6 +164,13 @@
             <a href="ISO_LINK_BURAYA" class="btn-main" id="dlBtn">İNDİR</a>
         </header>
 
+        <section id="amac">
+            <div class="wide-card">
+                <h2 id="h-amac">🎯 Projenin Amacı</h2>
+                <p id="p-amac" style="font-size: 1.3rem; line-height: 1.8;">Zenthorium, modern Windows sistemlerinde gereksiz yükleri ortadan kaldırarak kullanıcıya daha hızlı, güvenli ve sürdürülebilir bir deneyim sunmayı amaçlar.</p>
+            </div>
+        </section>
+
         <section id="yazilimlar">
             <div class="wide-card">
                 <h2 id="h-yazilim">📦 Dahili Yazılımlar</h2>
@@ -155,17 +189,23 @@
                     <li>⚒️ <b>Steel-Core:</b> <span id="t1">Gereksiz her şeyden arındırılmış saf Windows çekirdeği.</span></li>
                     <li>🧊 <b>Cold-Process:</b> <span id="t2">Minimum arka plan işlemiyle düşük sistem ısısı.</span></li>
                     <li>🔐 <b>Fortress:</b> <span id="t3">Gizliliğinizi koruyan kapalı telemetri servisleri.</span></li>
+                    <li>⚠️ <b>Pure Install:</b> <span id="t4">Sürücüler kurulu gelmez; donanımınıza uygun olanı siz seçin.</span></li>
                 </ul>
             </div>
         </section>
 
-        <section id="sistem">
-            <div class="wide-card">
-                <h2 id="h-sistem">🔧 Gereksinimler</h2>
-                <div class="spec-grid">
-                    <div class="spec-item">RAM: 512 MB+</div>
-                    <div class="spec-item">DISK: 15 GB SSD</div>
-                    <div class="spec-item">CPU: 1.0 GHz x64</div>
+        <section id="iletisim">
+            <div class="wide-card" style="text-align: center;">
+                <h2 id="h-iletisim">📩 İletişim</h2>
+                <div class="contact-links">
+                    <a href="#" class="contact-item">
+                        <span>📸 Instagram</span>
+                        <span class="soon-badge" id="soon1">YAKINDA</span>
+                    </a>
+                    <a href="#" class="contact-item">
+                        <span>🎥 YouTube</span>
+                        <span class="soon-badge" id="soon2">YAKINDA</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -183,6 +223,8 @@
             tr: {
                 tagline: "Metalik Hız, Çelik Stabilite.",
                 dl: "ZENTHORIUM İNDİR", 
+                ha: "🎯 Projenin Amacı",
+                pa: "Zenthorium, modern Windows sistemlerinde gereksiz yükleri ortadan kaldırarak kullanıcıya daha hızlı, güvenli ve sürdürülebilir bir deneyim sunmayı amaçlar.",
                 hy: "📦 Dahili Yazılımlar",
                 s1: "Hafif, hızlı ve verimli tarayıcı deneyimi.",
                 s2: "Gelişmiş dosya sıkıştırma ve arşivleme aracı.",
@@ -191,13 +233,17 @@
                 t1: "Gereksiz her şeyden arındırılmış saf Windows çekirdeği.", 
                 t2: "Minimum arka plan işlemiyle düşük sistem ısısı.",
                 t3: "Gizliliğinizi koruyan kapalı telemetri servisleri.", 
-                hs: "🔧 Gereksinimler", 
-                f: "XAUXE TARAFINDAN HAZIRLANDI • 2026", 
+                t4: "Sürücüler kurulu gelmez; donanımınıza uygun olanı siz seçin.",
+                hi: "📩 İletişim",
+                sn: "YAKINDA",
+                f: "BY XAUXE TARAFINDAN HAZIRLANDI • 2026", 
                 lbtn: "EN"
             },
             en: {
                 tagline: "Metallic Speed, Steel Stability.",
                 dl: "DOWNLOAD ZENTHORIUM", 
+                ha: "🎯 Project Purpose",
+                pa: "Zenthorium aims to provide a faster, safer, and sustainable experience by eliminating unnecessary loads in modern Windows systems.",
                 hy: "📦 Built-in Software",
                 s1: "Lightweight, fast, and efficient browser experience.",
                 s2: "Advanced file compression and archiving tool.",
@@ -206,7 +252,9 @@
                 t1: "Pure Windows core stripped of everything unnecessary.", 
                 t2: "Low system temperature with minimal background processes.",
                 t3: "Closed telemetry services protecting your privacy.", 
-                hs: "🔧 Requirements", 
+                t4: "Drivers are not pre-installed; choose the one that fits your hardware.",
+                hi: "📩 Contact",
+                sn: "SOON",
                 f: "FORGED BY XAUXE • 2026", 
                 lbtn: "TR"
             }
@@ -216,6 +264,8 @@
             currentLang = currentLang === 'tr' ? 'en' : 'tr';
             document.getElementById('tagline').innerText = content[currentLang].tagline;
             document.getElementById('dlBtn').innerText = content[currentLang].dl;
+            document.getElementById('h-amac').innerText = content[currentLang].ha;
+            document.getElementById('p-amac').innerText = content[currentLang].pa;
             document.getElementById('h-yazilim').innerText = content[currentLang].hy;
             document.getElementById('s1').innerText = content[currentLang].s1;
             document.getElementById('s2').innerText = content[currentLang].s2;
@@ -225,7 +275,9 @@
             document.getElementById('t2').innerText = content[currentLang].t2;
             document.getElementById('t3').innerText = content[currentLang].t3;
             document.getElementById('t4').innerText = content[currentLang].t4;
-            document.getElementById('h-sistem').innerText = content[currentLang].hs;
+            document.getElementById('h-iletisim').innerText = content[currentLang].hi;
+            document.getElementById('soon1').innerText = content[currentLang].sn;
+            document.getElementById('soon2').innerText = content[currentLang].sn;
             document.getElementById('footerText').innerText = content[currentLang].f;
             document.getElementById('langBtn').innerText = content[currentLang].lbtn;
         }
