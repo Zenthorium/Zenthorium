@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenthorium Project | Official</title>
+    <style>
+        :root {
+            --primary: #00f2ff; /* Zenthorium Neon Mavisi */
+            --bg: #050505;
+            --card-bg: #111111;
+            --text: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Arka plan süslemesi */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.1;
+            z-index: -1;
+            top: 10%;
+            left: 10%;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            max-width: 550px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: -2px;
+            margin: 0;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .spec-item {
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+
+        .spec-item:hover {
+            border-color: var(--primary);
+            background: rgba(0, 242, 255, 0.05);
+        }
+
+        .download-btn {
+            display: block;
+            background: var(--primary);
+            color: #000;
+            padding: 20px;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 242, 255, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .license-notice {
+            margin-top: 30px;
+            font-size: 10px;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>ZENTHORIUM</h1>
+        <div class="tagline">Next-Gen Windows Modification</div>
+        
+        <p class="description">Standart Windows sınırlarını aşın. Zenthorium, saf hız ve minimalist tasarım için yeniden inşa edildi.</p>
+
+        <div class="specs">
+            <div class="spec-item">🚀 0.8GB RAM Kullanımı</div>
+            <div class="spec-item">⚡ Ultra Düşük Gecikme</div>
+            <div class="spec-item">🛡️ Telemetri Arındırıldı</div>
+            <div class="spec-item">🎨 Özel Ghost Teması</div>
+        </div>
+
+        <a href="BURAYA_LINK_GELECEK" class="download-btn">DOWNLOAD ISO</a>
+
+        <div class="license-notice">
+            © 2026 ZENTHORIUM PROJECT. ALL RIGHTS RESERVED. <br>
+            UNAUTHORIZED DISTRIBUTION IS PROHIBITED.
+        </div>
+    </div>
+
+</body>
+</html>
