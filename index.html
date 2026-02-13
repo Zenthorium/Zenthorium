@@ -3,149 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenthorium Project | Official</title>
+    <title>ZENTHORIUM | High Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00f2ff; /* Zenthorium Neon Mavisi */
-            --bg: #050505;
-            --card-bg: #111111;
-            --text: #e0e0e0;
+            --bordo: #800000;
+            --bordo-light: #a30000;
+            --bg: #0a0a0a;
+            --card: #151515;
+            --text: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Açık Mod Ayarları */
+        .light-mode {
+            --bg: #f5f5f5;
+            --card: #ffffff;
+            --text: #1a1a1a;
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Quicksand', sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
+            transition: var(--transition);
+        }
+
+        /* Navigasyon / Kontroller */
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
+            gap: 10px;
+            z-index: 1000;
         }
 
-        /* Arka plan süslemesi */
-        body::before {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: var(--primary);
-            filter: blur(150px);
-            opacity: 0.1;
-            z-index: -1;
-            top: 10%;
-            left: 10%;
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            background: var(--bordo);
+            color: white;
+            transition: var(--transition);
         }
 
-        .container {
-            background-color: var(--card-bg);
-            padding: 50px;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            max-width: 550px;
-            width: 90%;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-        }
+        button:hover { background: var(--bordo-light); transform: scale(1.05); }
 
-        h1 {
-            font-size: 3rem;
-            letter-spacing: -2px;
-            margin: 0;
-            background: linear-gradient(to right, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; text-align: center; }
 
-        .tagline {
-            color: var(--primary);
-            font-size: 0.9rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
+        /* Başlık Alanı */
+        header { padding: 80px 0 40px; }
+        h1 { font-size: 3.5rem; margin: 0; color: var(--bordo-light); letter-spacing: -1px; }
+        .tagline { font-size: 1.2rem; opacity: 0.8; margin-top: 10px; }
 
-        .description {
-            font-size: 1.1rem;
-            color: #888;
-            margin-bottom: 40px;
-        }
-
-        .specs {
+        /* Kartlar Grid */
+        .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
         }
 
-        .spec-item {
-            background: rgba(255,255,255,0.03);
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s;
+        .card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 25px;
+            border: 1px solid rgba(128, 0, 0, 0.2);
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .spec-item:hover {
-            border-color: var(--primary);
-            background: rgba(0, 242, 255, 0.05);
+        /* Üzerine gelince öne çıkma efekti */
+        .card:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: var(--bordo);
+            box-shadow: 0 20px 40px rgba(128, 0, 0, 0.2);
         }
 
-        .download-btn {
-            display: block;
-            background: var(--primary);
-            color: #000;
-            padding: 20px;
+        .card h3 { color: var(--bordo-light); margin-top: 0; }
+
+        /* İndirme Butonu */
+        .download-area { margin-top: 60px; }
+        .btn-download {
+            display: inline-block;
+            padding: 20px 50px;
+            background: var(--bordo);
+            color: white;
             text-decoration: none;
-            font-weight: 900;
-            border-radius: 12px;
-            font-size: 1.2rem;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: var(--transition);
         }
+        .btn-download:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--bordo); }
 
-        .download-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 242, 255, 0.4);
-            filter: brightness(1.1);
-        }
-
-        .license-notice {
-            margin-top: 30px;
-            font-size: 10px;
-            color: #444;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        /* Mobil Uyumluluk (Responsive) */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>ZENTHORIUM</h1>
-        <div class="tagline">Next-Gen Windows Modification</div>
-        
-        <p class="description">Standart Windows sınırlarını aşın. Zenthorium, saf hız ve minimalist tasarım için yeniden inşa edildi.</p>
+    <div class="controls">
+        <button onclick="toggleLang()" id="langBtn">EN</button>
+        <button onclick="toggleTheme()">🌙/☀️</button>
+    </div>
 
-        <div class="specs">
-            <div class="spec-item">🚀 0.8GB RAM Kullanımı</div>
-            <div class="spec-item">⚡ Ultra Düşük Gecikme</div>
-            <div class="spec-item">🛡️ Telemetri Arındırıldı</div>
-            <div class="spec-item">🎨 Özel Ghost Teması</div>
+    <div class="container">
+        <header>
+            <h1 id="mainTitle">ZENTHORIUM</h1>
+            <p id="tagline" class="tagline">Hızın ve Gücün Yeni Tanımı</p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h3 id="card1Title">🚀 Performans</h3>
+                <p id="card1Text">Gereksiz tüm Windows servisleri kapatıldı. RAM kullanımı minimize edildi.</p>
+            </div>
+            <div class="card">
+                <h3 id="card2Title">🛠️ Sistem</h3>
+                <p id="card2Text">512MB RAM ve 15GB disk alanında bile akıcı bir deneyim sağlar.</p>
+            </div>
+            <div class="card">
+                <h3 id="card3Title">📜 Lisans</h3>
+                <p id="card3Text">Kapalı kaynak projedir. Tüm hakları saklıdır, izinsiz dağıtılamaz.</p>
+            </div>
         </div>
 
-        <a href="BURAYA_LINK_GELECEK" class="download-btn">DOWNLOAD ISO</a>
-
-        <div class="license-notice">
-            © 2026 ZENTHORIUM PROJECT. ALL RIGHTS RESERVED. <br>
-            UNAUTHORIZED DISTRIBUTION IS PROHIBITED.
+        <div class="download-area">
+            <a href="BURAYA_LINK_GELECEK" class="btn-download" id="dlBtn">ISO İNDİR</a>
         </div>
     </div>
 
+    <script>
+        // Tema Değiştirme
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+        }
+
+        // Dil Değiştirme
+        let currentLang = 'tr';
+        const content = {
+            tr: {
+                tagline: "Hızın ve Gücün Yeni Tanımı",
+                c1t: "🚀 Performans", c1p: "Gereksiz tüm Windows servisleri kapatıldı. RAM kullanımı minimize edildi.",
+                c2t: "🛠️ Sistem", c2p: "512MB RAM ve 15GB disk alanında bile akıcı bir deneyim sağlar.",
+                c3t: "📜 Lisans", c3p: "Kapalı kaynak projedir. Tüm hakları saklıdır, izinsiz dağıtılamaz.",
+                dl: "ISO İNDİR", lang: "EN"
+            },
+            en: {
+                tagline: "New Definition of Speed and Power",
+                c1t: "🚀 Performance", c1p: "All unnecessary Windows services disabled. RAM usage minimized.",
+                c2t: "🛠️ System", c2p: "Provides a smooth experience even on 512MB RAM and 15GB disk.",
+                c3t: "📜 License", c3p: "Closed source project. All rights reserved, cannot be redistributed.",
+                dl: "DOWNLOAD ISO", lang: "TR"
+            }
+        };
+
+        function toggleLang() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            document.getElementById('tagline').innerText = content[currentLang].tagline;
+            document.getElementById('card1Title').innerText = content[currentLang].c1t;
+            document.getElementById('card1Text').innerText = content[currentLang].c1p;
+            document.getElementById('card2Title').innerText = content[currentLang].c2t;
+            document.getElementById('card2Text').innerText = content[currentLang].c2p;
+            document.getElementById('card3Title').innerText = content[currentLang].c3t;
+            document.getElementById('card3Text').innerText = content[currentLang].c3p;
+            document.getElementById('dlBtn').innerText = content[currentLang].dl;
+            document.getElementById('langBtn').innerText = content[currentLang].lang;
+        }
+    </script>
 </body>
 </html>
