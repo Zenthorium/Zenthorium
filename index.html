@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZENTHORIUM | Next-Gen OS</title>
+    <title>ZENTHORIUM | Steel Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bordo-dark: #2a0000;
-            --bordo-main: #660000;
-            --bordo-bright: #990000;
-            --bg: radial-gradient(circle at center, #3d0000 0%, #080808 100%);
-            --card: rgba(18, 18, 18, 0.8);
+            /* Çelik ve Metal Renk Paleti */
+            --steel-dark: #1a1c1e;
+            --steel-medium: #2d3436;
+            --steel-light: #b2bec3;
+            --steel-shiny: #dfe6e9;
+            --accent-blue: #0984e3; /* Soğuk teknoloji mavisi */
+            --bg: linear-gradient(135deg, #0f1011 0%, #2c3e50 100%);
+            --card: rgba(45, 52, 54, 0.7);
             --text: #ffffff;
-            --nav-bg: rgba(10, 10, 10, 0.9);
+            --nav-bg: rgba(26, 28, 30, 0.95);
         }
 
         .light-mode {
-            --bg: linear-gradient(135deg, #f4f4f4 0%, #e0e0e0 100%);
-            --card: rgba(255, 255, 255, 0.9);
-            --text: #111111;
-            --nav-bg: rgba(244, 244, 244, 0.9);
+            --bg: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+            --card: rgba(255, 255, 255, 0.8);
+            --text: #2d3436;
+            --nav-bg: rgba(223, 230, 233, 0.95);
         }
 
         html { scroll-behavior: smooth; }
@@ -33,34 +36,34 @@
             margin: 0;
             transition: 0.3s;
             min-height: 100vh;
-            overflow-x: hidden; /* Yanlara taşmayı engeller */
+            overflow-x: hidden;
         }
 
-        /* Navigasyon Barı */
+        /* Çelik Dokulu Navigasyon */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background: var(--nav-bg);
-            border-bottom: 2px solid var(--bordo-main);
+            border-bottom: 2px solid var(--steel-light);
             display: flex;
             justify-content: space-around;
             align-items: center;
             padding: 15px 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        /* Navigasyondaki Geniş Logo */
         .logo {
             font-weight: 800;
             font-size: 1.2rem;
-            color: var(--bordo-bright);
+            color: var(--steel-shiny);
             text-decoration: none;
             cursor: pointer;
             display: inline-block;
             transform: scaleX(1.4);
             letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
         nav a {
@@ -73,11 +76,11 @@
 
         .nav-controls { display: flex; gap: 12px; }
         .control-btn {
-            background: rgba(102, 0, 0, 0.1);
-            border: 2px solid var(--bordo-main);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--steel-light);
             color: var(--text);
             padding: 6px 14px;
-            border-radius: 8px;
+            border-radius: 4px;
             cursor: pointer;
             font-weight: 700;
         }
@@ -88,74 +91,82 @@
             padding: 120px 20px 60px;
         }
 
-        header { text-align: center; padding: 80px 0 40px; }
+        header { text-align: center; padding: 60px 0 20px; }
 
-        /* ANA BAŞLIK: Yana doğru genişletilmiş ve ultra kalın */
+        /* ANA BAŞLIK: Çelik gibi sert ve geniş */
         h1 { 
             font-size: 5.5rem; 
             margin: 0; 
-            color: var(--bordo-bright); 
+            color: var(--steel-shiny); 
             font-weight: 800; 
             text-transform: uppercase;
             display: inline-block;
-            transform: scaleX(1.6); /* %160 Genişletme */
+            transform: scaleX(1.6);
             letter-spacing: 6px; 
-            text-shadow: 0 0 30px rgba(153, 0, 0, 0.6);
+            background: linear-gradient(to bottom, #ffffff, #b2bec3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 40px;
         }
 
         .tagline {
             font-size: 1.3rem;
-            opacity: 0.8;
+            color: var(--steel-light);
             font-weight: 600;
             margin-bottom: 30px;
             display: block;
         }
 
-        /* ÜSTE TAŞINAN İNDİR BUTONU */
-        .header-download {
-            margin-top: 20px;
-            margin-bottom: 50px;
-        }
-
+        /* Çelik İndirme Butonu */
         .btn-main {
-            padding: 18px 50px;
-            background: var(--bordo-main);
+            padding: 20px 60px;
+            background: linear-gradient(to bottom, #636e72, #2d3436);
             color: white !important;
             text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.4rem;
+            border-radius: 5px;
+            font-size: 1.5rem;
             font-weight: 800;
             display: inline-block;
             transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            border: 2px solid transparent;
+            border: 1px solid var(--steel-light);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
 
         .btn-main:hover {
-            background: var(--bordo-bright);
+            background: linear-gradient(to bottom, #b2bec3, #636e72);
+            color: #000 !important;
             transform: scale(1.05);
-            box-shadow: 0 0 30px var(--bordo-bright);
-            border-color: white;
+            box-shadow: 0 0 25px var(--steel-shiny);
         }
 
-        /* Geniş Kutular */
+        /* Perçinli/Metalik Kutular */
         .wide-card {
             background: var(--card);
             padding: 50px;
-            border-radius: 30px;
-            border-left: 8px solid var(--bordo-main);
+            border-radius: 10px;
+            border: 1px solid rgba(178, 190, 195, 0.3);
             margin-bottom: 40px;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        .wide-card h2 { color: var(--bordo-bright); font-size: 2rem; margin-top: 0; }
+        /* Köşe Detayı (Perçin Hissi) */
+        .wide-card::before {
+            content: "•";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: var(--steel-light);
+            font-size: 20px;
+            opacity: 0.5;
+        }
 
-        footer { text-align: center; padding: 40px; opacity: 0.4; font-size: 0.8rem; }
+        .wide-card h2 { color: var(--steel-shiny); font-size: 2rem; margin-top: 0; border-bottom: 1px solid var(--steel-light); display: inline-block; padding-bottom: 5px; }
+
+        footer { text-align: center; padding: 40px; color: var(--steel-light); font-size: 0.8rem; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; transform: scaleX(1.2); }
+            h1 { font-size: 2.2rem; transform: scaleX(1.1); }
             nav a { display: none; }
         }
     </style>
@@ -176,7 +187,7 @@
     <div class="container">
         <header>
             <h1 id="maintitle">ZENTHORIUM</h1>
-            <span id="tagline" class="tagline">Lithium Mirası, Zenthorium Gücü.</span>
+            <span id="tagline" class="tagline">Metalik Hız, Çelik Stabilite.</span>
             
             <div class="header-download">
                 <a href="BURAYA_LINK_GELECEK" class="btn-main" id="dlBtn">ZENTHORIUM İNDİR</a>
@@ -185,36 +196,36 @@
 
         <section id="amac">
             <div class="wide-card">
-                <h2 id="h-amac">🎯 Projenin Amacı</h2>
-                <p id="p-amac">Zenthorium, Windows'u temelden optimize ederek donanımınızın gerçek potansiyelini açığa çıkarır. Gereksiz tüm arka plan işlemlerini durdurarak size en saf performansı sunar.</p>
+                <h2 id="h-amac">⚒️ Endüstriyel Güç</h2>
+                <p id="p-amac">Zenthorium, Windows'un hantal yapısını çelik bir disiplinle temizler. Sadece ihtiyacınız olan çekirdek bileşenleri bırakarak, en zayıf donanımda bile endüstriyel standartlarda hız sunar.</p>
             </div>
         </section>
 
         <section id="ozellikler">
             <div class="wide-card">
-                <h2 id="h-ozel">🚀 Öne Çıkan Özellikler</h2>
+                <h2 id="h-ozel">⚙️ Teknik Özellikler</h2>
                 <ul style="font-size: 1.1rem; line-height: 2; list-style: none; padding: 0;">
-                    <li>🔥 <b>Z-Kernel:</b> Özel işlemci zamanlaması.</li>
-                    <li>📦 <b>No-Bloat:</b> Gereksiz uygulama barındırmaz.</li>
-                    <li>🛡️ <b>Privacy:</b> Tüm telemetri kalıcı olarak kapalı.</li>
-                    <li>🎮 <b>Gaming:</b> Giriş gecikmesi minimize edildi.</li>
+                    <li>🛠️ <b>Steel-Core:</b> Minimize edilmiş sistem çekirdeği.</li>
+                    <li>🧊 <b>Cold-Process:</b> Düşük CPU kullanımı, düşük sıcaklık.</li>
+                    <li>🔐 <b>Fortress:</b> Güçlendirilmiş güvenlik protokolleri.</li>
+                    <li>🏎️ <b>Raw-Speed:</b> Grafik arayüzü hızlandırması.</li>
                 </ul>
             </div>
         </section>
 
         <section id="sistem">
             <div class="wide-card">
-                <h2 id="h-sistem">💻 Sistem Gereksinimleri</h2>
+                <h2 id="h-sistem">🔧 Gereksinimler</h2>
                 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <div style="background: rgba(102, 0, 0, 0.1); padding: 15px 25px; border-radius: 12px; border: 1px solid var(--bordo-main);"><b>RAM:</b> 512 MB+</div>
-                    <div style="background: rgba(102, 0, 0, 0.1); padding: 15px 25px; border-radius: 12px; border: 1px solid var(--bordo-main);"><b>Disk:</b> 15 GB SSD</div>
-                    <div style="background: rgba(102, 0, 0, 0.1); padding: 15px 25px; border-radius: 12px; border: 1px solid var(--bordo-main);"><b>İşlemci:</b> 1.0 GHz x64</div>
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 15px 25px; border: 1px dashed var(--steel-light);"><b>RAM:</b> 512 MB+</div>
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 15px 25px; border: 1px dashed var(--steel-light);"><b>Disk:</b> 15 GB SSD</div>
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 15px 25px; border: 1px dashed var(--steel-light);"><b>İşlemci:</b> 1.0 GHz x64</div>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p>© 2026 Zenthorium Project. Tüm Hakları Saklıdır.</p>
+            <p>DESIGNED FOR PERFORMANCE. FORGED BY RHODIUM.<br>© 2026 Zenthorium Project.</p>
         </footer>
     </div>
 
@@ -224,16 +235,16 @@
         let currentLang = 'tr';
         const content = {
             tr: {
-                tagline: "Lithium Mirası, Zenthorium Gücü.",
+                tagline: "Metalik Hız, Çelik Stabilite.",
                 n1: "Amaç", n2: "Özellikler", n3: "Sistem",
-                ha: "🎯 Projenin Amacı", pa: "Zenthorium, Windows'u temelden optimize ederek donanımınızın gerçek potansiyelini açığa çıkarır.",
-                hs: "💻 Sistem Gereksinimleri", dl: "ZENTHORIUM İNDİR", lbtn: "EN"
+                ha: "⚒️ Endüstriyel Güç", pa: "Zenthorium, Windows'un hantal yapısını çelik bir disiplinle temizler.",
+                hs: "🔧 Gereksinimler", dl: "ZENTHORIUM İNDİR", lbtn: "EN"
             },
             en: {
-                tagline: "Lithium Legacy, Zenthorium Power.",
+                tagline: "Metallic Speed, Steel Stability.",
                 n1: "Purpose", n2: "Features", n3: "System",
-                ha: "🎯 Project Purpose", pa: "Zenthorium optimizes Windows from the ground up to unleash your hardware's true potential.",
-                hs: "💻 System Requirements", dl: "DOWNLOAD ZENTHORIUM", lbtn: "TR"
+                ha: "⚒️ Industrial Power", pa: "Zenthorium cleans the bloated Windows structure with steel discipline.",
+                hs: "🔧 Requirements", dl: "DOWNLOAD ZENTHORIUM", lbtn: "TR"
             }
         };
 
